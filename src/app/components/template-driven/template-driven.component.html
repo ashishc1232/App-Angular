@@ -1,0 +1,11 @@
+<p>template-driven works!</p>
+<form #form="ngForm" (ngSubmit)="submitForm(form)">
+    <label>Name:<input [(ngModel)]="user.name" #name="ngModel" name="name" required minlength="3" ></label>
+     <div *ngIf="name.invalid && name.touched" style="color:red">
+        Name must be at least 3 characters.
+      </div>
+    <label for="">Email:<input name="email" required [(ngModel)]="user.email" #email="ngModel" type="email"/></label>
+        <div *ngIf="email.invalid && email.touched" style="color: red;">Please Enter a valid email</div>
+
+        <button [disabled]="form.invalid">Submit</button>
+</form>
